@@ -34,3 +34,7 @@ i think testing is a crucial part of development because
 1) the ui e.g how many number of components can i reuse
 2) the size of the project e,g is it a big, medium or small project 
 3) the complexity of the project 
+
+7. improvements
+i could refactor some of the  function
+i could make it look more pretty
