@@ -36,7 +36,7 @@ function Summary({
   return (
     <div className="container pt-5">
       <div className="row">
-        <div className="pt-5 bg-secondary mx-auto col-12 col-md-6 col-lg-4 main-height">
+        <div className="pt-5 bg-secondary mx-auto col-12 col-md-6 col-lg-4 summary-height">
           <h1 className="text-white text-center">Summary</h1>
           <Content label="First Name:" resp={firstName} />
           <Content label="Last Name:" resp={lastName} />
