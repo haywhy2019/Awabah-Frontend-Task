@@ -1,7 +1,32 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import CustomInput from "../component/Input";
+import ControlBtn from "../component/ControlBtn";
+import {PizzaContext} from "../pizzaContext"
 
-function CardForm() {
+function CardForm({
+  next,
+  previous,
+  disable1,
+  disable2,
+}: {
+  next: any;
+  previous: any;
+  disable1: boolean;
+  disable2: boolean;
+}) {
+  const {card }  = useContext(PizzaContext);
+  const [cardNum, setCardNum, cardDate, setCardDate,cardCode, setCardCode,cardErr, setCardErr] = card
+  const checkField = () => {
+    if ((cardNum == "") || (cardDate == "") ||( cardCode == "")) {
+      setCardErr("all fields must be filled");
+      return;
+    } else {
+      // setCardErr("");
+      console.log(cardNum, "num", cardDate, "date", cardCode, "code")
+      next();
+    }
+  };
+
   return (
     <div className="container pt-5">
       <div className="row">
@@ -9,23 +34,34 @@ function CardForm() {
           <CustomInput
             label="CardNumber"
             type="number"
-            onChange={() => console.log("pizza number")}
+            value={cardNum}
+            onChange={(e:any) => setCardNum(e.target.value)}
             placeholder="Enter card No"
           />
           <CustomInput
             label="Card Expiration Date"
             type="date"
-            onChange={() => console.log("pizza number")}
+            value={cardDate}
+            onChange={(e:any) => setCardDate(e.target.value)}
             placeholder="YYYY/MM"
           />
           <CustomInput
             label="Card Security Code"
             type="number"
-            onChange={() => console.log("pizza number")}
+            value={cardCode}
+            onChange={(e:any) => setCardCode(e.target.value)}
             placeholder="Enter Security No"
           />
+            <p className="text-danger text-center">{cardErr}</p>
         </form>
       </div>
+      <ControlBtn
+        next={checkField}
+        disabled1={disable1}
+        disabled2={disable2}
+        previous={previous}
+        // step={step}
+      />
     </div>
   );
 }

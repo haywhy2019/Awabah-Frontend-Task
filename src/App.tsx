@@ -4,10 +4,22 @@ import UserForm from "./Forms/userForm";
 import CardForm from "./Forms/cardForm";
 import Button from "./component/Button";
 import Summary from "./component/Summary";
+import CustomInput from "./component/Input";
+import dummy from "./dummy";
 
 const App = () => {
   const [step, setStep] = useState(1);
+  const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState<any>({});
 
+
+  const searchPizza = (e: any) => {
+    e.preventDefault();
+    const found: any = dummy.find(
+      (element: any) => element.name.toLowerCase() === search.toLowerCase()
+    );
+    setSearchResult(found);
+  };
   const previous = () => {
     if (step == 1) {
       return;
@@ -24,31 +36,53 @@ const App = () => {
     }
   };
   return (
-    <div className="bg-image ">
-      <div className="container-fluid">
-        {step == 1 && <PizzaForm />}
-        {step == 2 && <CardForm />}
-        {step == 3 && <UserForm />}
-        {step == 4 && <Summary />}
-
-        <div className="col-12  d-flex justify-content-center  pt-5">
-          <div className="btn-group me-5">
-            <Button
-              label="Previous"
-              onClick={previous}
-              disabled={step == 1 ? true : false}
-            />
-          </div>
-          <div className="btn-toolbar">
-            <Button
-              label="Next"
-              onClick={next}
-              disabled={step == 4 ? true : false}
-            />
-          </div>
+    <div className="bg-image">
+      <p className="text-white text-center">
+        search only works for pizza names that appear on the pizza type drop
+        down. any other search value would return pizza not found
+      </p>
+      <div className="col-12 col-md-6 col-lg=4 d-flex  mx-auto align-items-center">
+        <CustomInput
+          type="search"
+          placeholder="search "
+          onChange={(e: any) => setSearch(e.target.value)}
+        />
+        <div className="py-2">
+          <Button label="Search" onClick={searchPizza} />
         </div>
       </div>
-
+      <div>
+        <p className="text-white text-center">
+          {searchResult ? searchResult.name : "Pizza not found"}
+        </p>
+      </div>
+      <div className="container-fluid">
+        {step == 1 && (
+          <PizzaForm
+            next={next}
+            previous={previous}
+            disable1={true}
+            disable2={false}
+          />
+        )}
+        {step == 2 && (
+           <CardForm   
+            next={next}
+            previous={previous}
+            disable1={false}
+            disable2={false}/>)}
+        {step == 3 && <UserForm  
+         next={next}
+            previous={previous}
+            disable1={false}
+            disable2={false}/>}
+        {step == 4 && <Summary 
+         
+         previous={previous}
+         disable1={false}
+         disable2={true}
+        />}
+      </div>
     </div>
   );
 };

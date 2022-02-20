@@ -1,4 +1,7 @@
-const pizza: Array<object> =  [
+interface Pizza {
+  name: string,
+}
+const pizza: Array<Pizza> =  [
   { name: "neapolitan pizza"},
   {name: "marinara piza"},
   {name: "chicago pizza"},
