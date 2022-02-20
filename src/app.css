@@ -10,7 +10,7 @@ input[type=number] {
 }
 
 .bg-image {
-    background-image: url("./images/pizza.jpeg");
+    background: url("./images/pizza.jpeg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;

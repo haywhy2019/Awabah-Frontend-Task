@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
-  output: { path: path.join(__dirname, "dist"), filename: "bundle.js", clean: true },
+  output: { path: path.join(__dirname, "dist"), filename: "index.bundle.js", clean: true },
   mode: process.env.NODE_ENV || "development",
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
@@ -24,6 +24,7 @@ module.exports = {
       {
         test: /\.(css|scss)$/,
         use: ["style-loader", "css-loader", "css-modules-typescript-loader"],
+       
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
@@ -32,7 +33,9 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        
       },
+      
     ],
   },
   plugins: [

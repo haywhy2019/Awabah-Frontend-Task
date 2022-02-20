@@ -7,6 +7,8 @@ import Summary from "./component/Summary";
 import CustomInput from "./component/Input";
 import dummy from "./dummy";
 
+
+
 const App = () => {
   const [step, setStep] = useState(1);
   const [search, setSearch] = useState("");
