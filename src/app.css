@@ -11,7 +11,7 @@ input[type=number] {
 
 .bg-image {
     background: url("./images/pizza.jpeg");
-    height: 100vh;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,4 +23,11 @@ input[type=number] {
 
   .summary-height {
     height: 35rem;
+  }
+  @media only screen and (min-width: 1200px) {
+    .bg-image {
+    
+      min-height: 100vh;
+     
+    }
   }

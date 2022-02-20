@@ -15,7 +15,7 @@ const ControlBtn = ({
     disabled2: boolean;
   }) => {
     return (
-      <div className="col-12  d-flex justify-content-center  pt-5">
+      <div className="col-12  d-flex justify-content-center  p-5">
         <div className="btn-group me-5">
           <Button
             label="Previous"

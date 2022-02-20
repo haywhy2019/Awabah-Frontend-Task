@@ -39,17 +39,17 @@ const App = () => {
   };
   return (
     <div className="bg-image">
-      <p className="text-white text-center">
+      <p className="text-white text-center py-4">
         search only works for pizza names that appear on the pizza type drop
         down. any other search value would return pizza not found
       </p>
-      <div className="col-12 col-md-6 col-lg=4 d-flex  mx-auto align-items-center">
+      <div className="col-12 col-md-6 col-lg=4 d-md-flex  mx-auto align-items-center ">
         <CustomInput
           type="search"
           placeholder="search "
           onChange={(e: any) => setSearch(e.target.value)}
         />
-        <div className="py-2">
+        <div className="py-2 text-center mx-auto">
           <Button label="Search" onClick={searchPizza} />
         </div>
       </div>
@@ -58,7 +58,7 @@ const App = () => {
           {searchResult ? searchResult.name : "Pizza not found"}
         </p>
       </div>
-      <div className="container-fluid">
+      <div className="container-fluid mb-4">
         {step == 1 && (
           <PizzaForm
             next={next}
