@@ -32,7 +32,8 @@ i think testing is a crucial part of development because
 
 6. mostly it is determined by 
 1) the ui e.g how many number of components can i reuse
-2) the size of the project e,g is it a big, medium or small project 
+2) the size of the project e.g is it a big, medium or small project 
+    to manage the state of the form and its values i used context api as i figured redux would be an over kill.  
 3) the complexity of the project 
 
 7. improvements
